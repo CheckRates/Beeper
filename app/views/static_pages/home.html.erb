@@ -1,12 +1,17 @@
 <% provide(:title, "Home") %>
 <!DOCTYPE html>
 <html>
-  <h1>Beeper</h1>
-  <p>Welcome to Beeper
-     This is the homepage for the greatest Twitter clone you ever
-     seen...You are welcome
-  </p>
-  <p>
-    From <a href="https://www.railstutorial.org/"> Ruby on Rails Tutorial
-   </p>
+  <div class="center jumbotron">
+  <h1>Welcome to the Beeper App</h1>
+
+  <h2>
+    This is the home page for the best Twitter clone ever.. you are welcome
+  </h2>
+  <h3>
+    Based on the <a href="https://www.railstutorial.org/"> Ruby on Rails Tutorial</a>
+  </h3>
+
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
+  <%= image_tag("appIcon.png", width: '150px') %>
 </html>
