@@ -4,8 +4,7 @@ User.create!(name:  "Example User",
              password:              "foobar",
              password_confirmation: "foobar",
              admin: true,
-             activated: true,
-             activated_at: Time.zone.now)
+             )
 
 99.times do |n|
   name = Faker::Name.name
@@ -15,8 +14,7 @@ User.create!(name:  "Example User",
                email: email,
                password:              password,
                password_confirmation: password,
-               activated: true,
-               activated_at: Time.zone.now)
+               )
 end
 
 
@@ -25,3 +23,12 @@ users = User.order(:created_at).take(6)
   content = Faker::TvShows::BojackHorseman.character  #The Lorem Ipsum wasnt working and was boring
   users.each { |user| user.microposts.create!(content: content) }
 end
+
+
+# Following relationships
+users = User.all
+user = users.first
+following = users[2..50]
+followers = users[3..40]
+following.each { |followed| user.follow(followed) }
+followers.each { |follower| follower.follow(user) }
